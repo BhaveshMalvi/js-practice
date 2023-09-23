@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Api</title>
+</head>
+<body>
+    <h1 id="text">Bhaveshkumar Malvi</h1>
+    <button id="btn">Click me</button>
+</body>
+<script>
+    
+    // syntax:
+    // setTimeout(handler, timeholding)
+
+
+    // setTimeout(function(){},2000)
+    // it is one time run because apna to kam hogaya na to fir de do use .
+    // ek bar apka kam karta he.
+
+    // setTimeout(function(){
+    //     console.log('Bhavesh Malvi');
+    // },2000)
+
+    // const setTime = function(){
+    //     console.log("Bhavesh Malvi");
+    // }
+    // setTimeout(setTime,2000);
+
+    const changMe =  function(){
+        document.querySelector('#text').innerHTML = "Bman0"
+    }
+    // setTimeout(changMe,2000)
+    
+    // clearTimeout()
+    // clearTimeout(which_is _ref_setTimeOut)
+    
+    const stopMe = setTimeout(changMe,2000)
+
+    document.querySelector("#btn").addEventListener('click', function(){
+        clearTimeout(stopMe)
+        console.log("stopped")
+
+
+    })
+
+
+
+
+
+
+</script>
+</html>

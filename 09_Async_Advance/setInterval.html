@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="text">Bhaveshkumar Malvi</h1>
+    <button id="start_btn">Start</button>
+    <button id="stop_btn">Stop</button>
+</body>
+<script>
+    // setInterval
+    // setInterval(handler, timeInterval)
+
+    // setInterval(function(){
+    //     console.log("bhavesh Malvi", Date.now());
+    // },2000)
+
+    
+    // const interval =   setInterval(startInterval, 2000, "hiii")
+    
+    // clearInterval(interval)
+    
+    const startInterval = function(str){
+        console.log(str, Date.now());
+    }
+
+    let set; // declred variable in globle scop.
+
+    function interval_function(){
+        // set is does not any required type of variable.
+        
+         set =  setInterval(startInterval,1000,"Bhavesh");
+
+         // Using var instead of let for the intervalId variable makes it function-scoped rather than block-scoped (as it would be with let). In this specific code, it won't make a noticeable difference in behavior because the variable is declared at the top level of the script, and it can be accessed and modified from anywhere within the script.
+
+         //  intervalId in JavaScript is a variable that typically holds an integer value, which represents the unique identifier (ID) assigned to an interval timer created using the setInterval function. It is used to later reference and clear (stop) the interval timer using the clearInterval function.
+    };
+
+    function stop(){
+        clearInterval(set)
+    }
+
+    const start_btn =  document.querySelector('#start_btn');
+    start_btn.addEventListener('click',interval_function);
+    
+    const stop_btn = document.querySelector('#stop_btn');
+    stop_btn.addEventListener('click',stop);
+
+
+
+
+    // *********************************************************
+    // let a = function(){
+    //         console.log(Math.random().toFixed(2))
+    //     }
+    //     document.querySelector('#start_btn').addEventListener('click',function(){
+    //         c=setInterval(a,1000)
+    //     })
+
+    //     document.querySelector('#stop_btn').addEventListener('click',function(){
+    //         clearInterval(c)
+    //     })
+    
+
+</script>
+</html>

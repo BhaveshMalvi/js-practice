@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom concept</title>
+</head>
+<body style="background: #212121; color: #fff;">
+    <ul class="language">
+        <li>java</li>
+        
+    </ul>
+
+</body>
+
+<script>
+
+    // if this techniques use then tree triversy effected so can't be use.
+    function addlanguage(language){
+       const li =  document.createElement('li');
+       li.innerHTML = `${language} `; 
+       document.querySelector('.language').appendChild(li)
+
+    }
+
+    addlanguage("python")
+    addlanguage("javascript")
+
+// this is a very optimize technique.
+    function addOptiLanguage(language){
+
+       const li =  document.createElement('li')
+       li.appendChild(document.createTextNode(language))
+       document.querySelector('.language').appendChild(li)
+    }
+
+    addOptiLanguage("typescript")
+
+
+        // Edit
+    const secound_lan = document.querySelector("li:nth-child(2)")
+    // secound_lan.innerHTML ="mojo "
+     const new_li =  document.createElement('li')
+     new_li.textContent = "mojo"
+     secound_lan.replaceWith(new_li)
+
+     // Edit
+
+     const first_li = document.querySelector('li:first-child')
+     first_li.outerHTML = '<li>Type script </li>'
+
+     // Remove
+     const last_li = document.querySelector("li:last-child")
+    last_li.remove()
+
+</script>
+
+</html>

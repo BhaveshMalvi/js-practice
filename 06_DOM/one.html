@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+
+<body style="background: #212121; color: white;">
+    <div id="cover" class="cover2">
+        <h1 class="title">web app</h1>
+        <h1>web app 2</h1>
+        <h2 id="intro">introduction</h2>
+        <h2>intro 2</h2>
+        <h3 id="para">id consectetur porro?<span style="display: none;">Top Secret</span></h3>
+        <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, obcaecati.</h3>
+        <input type="password" name="" id="">
+        <ul>
+            <li class="list">one</li>
+            <li class="list">two</li>
+            <li class="list">three</li>
+        </ul>
+    </div>
+
+    <!-- ############################ DOM #############################  -->
+    <script>
+        // ************* all declared in browser console ***************** 
+        // ########## GET ############# 
+        // document.getElementById("cover").id 
+        // document.getElementById("cover").className 
+        // document.getElementById("cover").getAttribute("id") 
+        //document.getElementById("cover").getAttribute("class")
+
+        // ##################### SET #################### 
+        // document.getElementById("cover").setAttribute("class","text") // override text in class element values of text . 
+        // document.getElementById("cover").setAttribute("class","text heading para") 
+
+        // #################### store variable ##########################
+        var title = document.getElementById("cover");
+
+        // title.textContent // this is a hidden text with visible.
+        // title.innerText // this is show only which text are visible.
+        // title.innerHTML 
+
+        // EX
+        // const para = document.getElementById("para")
+        // undefined
+        //o/p: para.innerHTML
+        // 'id consectetur porro?<span style="display: none;">Top Secret</span>'
+
+        //o/p: para.innerText
+        // 'id consectetur porro?'
+
+        //o/p: para.textContent
+        // 'id consectetur porro?Top Secret'
+
+        //    ##################   query selector ################33 
+
+        // document.querySelector('input[type="password"]')
+        //   op:      < input type = "password" name id >
+
+        //         document.querySelector("#cover")
+        //   op:      < div id = "cover" class=​"cover2" >​…​</div >
+
+        //             document.querySelector
+        //   op:      ƒ querySelector() { [native code] }
+
+        //         document.querySelector(".title")
+        //  op:    < h1 class=​"title" > web app​</h1 >
+
+        // var ul = document.querySelector("ul")
+        // undefined
+
+        // ul.style.color = "yello"
+        // 'yello'
+
+        // ul.querySelector("li")
+        //     < li >​…​</li >
+
+        // const li = ul.querySelector("li")
+        // undefined
+
+        // li.style.backgroundColor = "green"
+        // 'green'
+
+        // li.style.borderRadius = "3px"
+        // '3px'
+
+        // li.style.padding = "3px"
+        // '3px'
+ // ############################## NodeList and Array and HTMLCollection diffrence ########################## 
+        //  show there diffrence __ proto___ is easy to explain . it is properties are apply is diffrent way. 
+        // NodeList : don't apply map. // not apply similar property as Array. 
+        // Array  :apply map property 
+
+        // const li = document.querySelectorAll("li")
+        // undefined
+
+        // li
+        // NodeList(3)[li, li, li]
+
+        // li.forEach(function (iteam) {
+        //     iteam.style.color = 'green'
+        // })
+        // undefined
+
+
+// ****************** HTMLCollection*************************************
+
+// document.getElementsByClassName("list")
+// op:HTMLCollection(3) [li.list, li.list, li.list]
+
+// so HTMLCollection is not define all map, foreach properys so convert form of the array. 
+
+// ***************************************************************************************
+// ================= HTTMLCollection convert in to Array form ============ 
+// const li_list = document.getElementsByClassName("list")
+
+// Array.from(li_list)
+
+// const arr_list = Array.from(li_list)
+// arr_list.map((li) => li.style.color = 'red')
+
+// example 
+
+
+// -------------------------------------------------------------------------------------------------------------------------------------------
+
+// const tag_h3 = document.querySelectorAll('h3')
+// undefined
+// tag_h3[0].innerText
+// 'Nacimiento de JavaScript[editar]'
+// tag_h3[1].innerText
+// 'JavaScript en el lado servidor[editar]'
+// tag_h3.forEach((item)=> item.style.color ='red' )
+// undefined
+// tag_h3.forEach((item)=> item.style.backgrounf ='yellow' )
+// undefined
+// tag_h3.forEach((item)=> item.style.background ='yellow' )
+// undefined
+// tag_h3.forEach((item)=> item.style.borderradius ='50%' )
+// undefined
+// tag_h3.forEach((item)=> item.style.borderradius ='5px' )
+// undefined
+// tag_h3.forEach((item)=> item.style.borderRadius ='5px' )
+// undefined
+// tag_h3.forEach((item)=> item.style.borderRadius ='15px' )
+// undefined
+// tag_h3.forEach((item)=> item.style.padding ='15px' )
+// undefined
+
+    </script>
+</body>
+
+</html>

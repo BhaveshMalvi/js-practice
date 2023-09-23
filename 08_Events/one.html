@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events in js</title>
+</head>
+
+<body>
+    <h1>My Images</h1>
+    <ul id="images">
+        <li><img width="200px" id="animal" src="img/animal.jpg" alt="img not find"></li>
+        <li><img width="200px" id="house" src="img/house.jpg" alt="img not find"></li>
+        
+        <!-- <li><img width="200px" id="bird" src="img/bird.jpg" alt="img not find" onclick="alert('bird')"></li> // this approch is not good . in js coding. not inject in HTML -->
+        
+        <li><img width="200px" id="bird" src="img/bird.jpg" alt="img not find"></li>
+        <li><img width="200px" id="space" src="img/space.jpg" alt="img not find"></li>
+        <li><img width="200px" id="nuture" src="img/nature.jpg" alt="img not find"></li>
+        <li><a href="https://google.com" id="google">google</a></li>
+    </ul>
+</body>
+<script>
+    // this approch also not a good which id is bird are create a problem in long term. so avoid this mistake.it is a not take a more about that information.using a addEventListenr.
+
+    // Morden Feature are use in js .
+    // so using a addEventListener it is not onClick Functionality but propogation ability are given so use this. 
+
+    // document.getElementById("bird").onclick = function(){
+    //     alert('bird')
+    // }
+
+    // more details search about addEventListener
+    // third parameter is default is it not use most off case.
+    // kai bar interview me esi condition di jati he jo true or false likhe bina solve nahi ho pati he isliye..
+
+    // attachEvent()
+    //  jquery - on
+
+    // type, timeStamp, defaultPrevente
+    // target,toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keycode
+
+
+    // document.getElementById("bird").addEventListener('click', function(){},false)
+
+    // document.getElementById("bird").addEventListener('click', function () {
+    //     alert('bird')
+    // })
+
+    // event function serch 
+    // document.getElementById("bird").addEventListener('click', function(e.target){
+        // alert('bird')
+    // },false)
+
+    // Event Propogation :
+
+    // What is “propagation”?
+
+    // Propagation refers to how events travel through the Document Object Model (DOM) tree. The DOM tree is the structure which contains parent/child/sibling elements in relation to each other. You can think of propagation as electricity running through a wire, until it reaches its destination. The event needs to pass through every node on the DOM until it reaches the end, or if it is forcibly stopped.
+
+    // Bubbling and Capturing are the two phases of propagation. In their simplest definitions, bubbling travels from the target to the root, and capturing travels from the root to the target. However, that doesn’t make much sense without first defining what a target and a root is.
+
+
+    // event Propogation ka sara khel bubbling up he.
+    // it is botttom to top side move like a li to ul side as first run a bird after that image inside ul.
+    // inside to outside in propogation called bubbling propogation.
+
+    // document.getElementById("images").addEventListener('click', function(e){
+    //     console.log('images clicked ul in parents')
+    // },false)
+
+    // document.getElementById("bird").addEventListener('click', function(e){
+    //     console.log('bird clicked li in child')
+    // },false)
+
+    // capturing mode : top to bottom side as like reverse of bubbling. 
+    // result ul to li side run this.
+
+    // document.getElementById("images").addEventListener('click', function(e){
+    //     console.log('images clicked ul in parents')
+    // },true)
+
+    // document.getElementById("bird").addEventListener('click', function(e){
+    //     console.log('bird clicked li in child')
+    // },true)
+
+
+    // stop propogation.(bubbble propogation)
+    // if saprate to ul and li events or stop the propogation 
+    // it is used only false element of third parameter.
+
+    // document.getElementById("images").addEventListener('click', function(e){
+    //     console.log('images clicked ul in parents')
+    // },false)
+
+    // document.getElementById("bird").addEventListener('click', function(e){
+    //     console.log('bird clicked li in child')
+    //     e.stopPropagation() // event bubbble hok upeer k element par nahi jaiga.
+    // },false)    
+
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault() // does not going on link or open link.
+    //     e.stopPropagation()// not bubbling propogation.
+    //     console.log('google clicked');
+    // },false)
+
+
+    // project 
+
+        document.querySelector('#images').addEventListener('click', function(e){
+            // let removeit = e.target.parentNode
+            // console.log(e.target.parentNode);
+            console.log(e.target.tagName);
+    
+            if(e.target.tagName === 'IMG'){
+                console.log(e.target.id);
+                let removeit = e.target.parentNode;
+                removeit.remove()
+            }
+            // removeit.parentNode.removeChild(removeit)
+        },false) 
+
+</script>
+
+</html>
